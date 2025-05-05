@@ -5,9 +5,10 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
-@Beans
+
 public interface ProductService {
 
+    @Bean
     List<Product> getAllProduct();
 
 }
