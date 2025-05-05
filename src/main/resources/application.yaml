@@ -8,6 +8,7 @@ spring:
     url: yeume-enterprise.edu.vn
     username: yeumeent_czmn
     password: concakgi@123
+    port: 3306
   jpa:
     hibernate:
       ddl-auto: update
