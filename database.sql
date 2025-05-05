@@ -11,12 +11,12 @@ CREATE DATABASE IF NOT EXISTS `yeumeent_czmn` /*!40100 DEFAULT CHARACTER SET lat
 USE `yeumeent_czmn`;
 
 CREATE TABLE IF NOT EXISTS `brand` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `brand_id` int(11) NOT NULL AUTO_INCREMENT,
+  `brand_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`brand_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-INSERT INTO `brand` (`id`, `name`) VALUES
+INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 	(1, 'Motul'),
 	(2, 'Liqui Moly');
 
@@ -24,8 +24,7 @@ CREATE TABLE IF NOT EXISTS `export_details` (
   `detail_id` int(11) NOT NULL AUTO_INCREMENT,
   `receipt_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
   PRIMARY KEY (`detail_id`),
   KEY `receipt_id` (`receipt_id`),
   KEY `product_id` (`product_id`),
@@ -37,9 +36,8 @@ CREATE TABLE IF NOT EXISTS `export_details` (
 CREATE TABLE IF NOT EXISTS `export_receipts` (
   `receipt_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
-  `export_date` datetime DEFAULT current_timestamp(),
-  `customer_name` varchar(100) DEFAULT NULL,
   `note` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`receipt_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `export_receipts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
@@ -50,8 +48,7 @@ CREATE TABLE IF NOT EXISTS `import_details` (
   `detail_id` int(11) NOT NULL AUTO_INCREMENT,
   `receipt_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
   PRIMARY KEY (`detail_id`),
   KEY `receipt_id` (`receipt_id`),
   KEY `product_id` (`product_id`),
@@ -63,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `import_details` (
 CREATE TABLE IF NOT EXISTS `import_receipts` (
   `receipt_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
-  `import_date` datetime DEFAULT current_timestamp(),
   `note` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`receipt_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `import_receipts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
@@ -73,47 +70,100 @@ CREATE TABLE IF NOT EXISTS `import_receipts` (
 
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_code` varchar(50) DEFAULT NULL,
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `brand` int(11) DEFAULT NULL,
-  `volume` varchar(20) DEFAULT NULL,
+  `product_code` varchar(20) DEFAULT NULL,
+  `product_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `dung_tich` varchar(20) DEFAULT NULL,
+  `brand` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `sl_ton` int(11) DEFAULT 0,
-  `unit` varchar(20) DEFAULT 'chai',
-  `price` decimal(10,2) DEFAULT 0.00,
-  `created_at` datetime DEFAULT current_timestamp(),
+  `sl_moi` int(11) DEFAULT 0,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-INSERT INTO `products` (`product_id`, `product_code`, `name`, `brand`, `volume`, `sl_ton`, `unit`, `price`, `created_at`) VALUES
-	(17, NULL, 'Motul Scooter Le 10W40', 0, '800ML', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(18, NULL, 'Motul Scooter Le MB 10W40', 0, '800ML', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(19, NULL, 'Motul GP Power 10W40', 0, '800ML', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(20, NULL, 'Motul 7100 10W40', 0, '1L2', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(21, NULL, 'Motul 7100 10W40', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(22, NULL, 'Motul 7100 10W50', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(23, NULL, 'Motul Nhớt Láp', 0, 'Tuýp', 0, 'tuýp', 0.00, '2025-05-05 22:32:13'),
-	(24, NULL, 'Motul Nhớt AVANA 10W40', 0, '800ML', 0, 'chai', 0.00, '2025-05-05 22:32:13'),
-	(25, '20753', 'Liqui Moly Street Race 10W40', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(26, '20826', 'Liqui Moly Scooter Race 10W40', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(27, '21718', 'Liqui Moly Molygen Scooter 5W30', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(28, '21895', 'Liqui Moly Molygen Scooter 5W30', 0, '800ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(29, '3036', 'Liqui Moly  Formula 4T 10W400', 0, '800ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(30, '1521', 'Liqui Moly Synthetic 10W40 Street', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(31, '6924', 'Liqui Moly Nước Làm Mát', 0, '1L', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(32, '1803', 'Liqui Moly Xúc Pet Xăng Xe Hơi', 0, '300ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(33, '7916', 'Liqui Moly Xúc Pet Xăng Xe Máy', 0, '80ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(34, '1516', 'Liqui Moly Nhớt Láp', 0, '500ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(35, '2427', 'Liqui Moly Súc Rửa Động Cơ', 0, '500ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(36, '1680', 'Nhớt Hộp Số Xe Ga 80W90', 0, '150ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(37, '3325', 'Liqui Moly VS Cổ Họng Ga', 0, '400ML', 0, 'chai', 0.00, '2025-05-05 22:33:33'),
-	(38, '21611', 'Liqui Moly VS Bóng Nhanh Detalinh', 0, '500ML', 0, 'chai', 0.00, '2025-05-05 22:33:33');
+INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `dung_tich`, `brand`, `sl_ton`, `sl_moi`) VALUES
+	(23, NULL, 'Scooter Le 10W40', '800ML', 'Motul', 0, 0),
+	(24, NULL, 'Scooter Le MB 10W40', '800ML', '1', 0, 0),
+	(25, NULL, 'GP Power 10W40', '800ML', '1', 0, 0),
+	(26, NULL, '7100 10W40', '1L2', '1', 0, 0),
+	(27, NULL, '7100 10W40', '1L', '1', 0, 0),
+	(28, NULL, '7100 10W50', '1L', '1', 0, 0),
+	(29, NULL, 'Nhớt Láp', 'Tuýp', '1', 0, 0),
+	(30, NULL, 'Nhớt AVANA 10W40', '800ML', '1', 0, 0),
+	(31, '20753', 'Street Race 10W40', '1L', '2', 0, 0),
+	(32, '20826', 'Scooter Race 10W40', '1L', '2', 0, 0),
+	(33, '21718', 'Molygen Scooter 5W30', '1L', '2', 0, 0),
+	(34, '21895', 'Molygen Scooter 5W30', '0.8L', '2', 0, 0),
+	(35, '3036', 'Formula 4T 10W400', '0.8L', '2', 0, 0),
+	(36, '1521', 'Synthetic 10W40 Street', '1L', '2', 0, 0),
+	(37, '6924', 'Nước Làm Mát', '1L', '2', 0, 0),
+	(38, '1803', 'Xúc Pet Xăng Xe Hơi', '300ML', '2', 0, 0),
+	(39, '7916', 'Xúc Pet Xăng Xe Máy', '80ML', '2', 0, 0),
+	(40, '1516', 'Nhớt Láp', '500ML', '2', 0, 0),
+	(41, '2427', 'Súc Rửa Động Cơ', '500ML', '2', 0, 0),
+	(42, '1680', 'Nhớt Hộp Số Xe Ga 80W90', '150ML', '2', 0, 0),
+	(43, '3325', 'VS Cổ Họng Ga', '400ML', '2', 0, 0),
+	(44, '21611', 'VS Bóng Nhanh Detalinh', '500ML', '2', 0, 0);
+
+DELIMITER //
+CREATE PROCEDURE `sp_export_stock`(
+    IN p_user_id INT,
+    IN p_product_id INT,
+    IN p_quantity INT,
+    IN p_note TEXT
+)
+BEGIN
+    -- Kiểm tra tồn kho đủ không
+    IF (SELECT sl_ton FROM products WHERE product_id = p_product_id) < p_quantity THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Không đủ hàng trong kho để xuất.';
+    END IF;
+
+    -- Thêm phiếu xuất
+    INSERT INTO export_receipts (user_id, note) VALUES (p_user_id, p_note);
+    SET @receipt_id = LAST_INSERT_ID();
+
+    -- Chi tiết xuất
+    INSERT INTO export_details (receipt_id, product_id, quantity) 
+    VALUES (@receipt_id, p_product_id, p_quantity);
+
+    -- Ghi nhật ký
+    INSERT INTO stock_logs (product_id, user_id, action, quantity, note)
+    VALUES (p_product_id, p_user_id, 'export', p_quantity, p_note);
+
+    -- Cập nhật tồn kho
+    UPDATE products SET sl_ton = sl_ton - p_quantity WHERE product_id = p_product_id;
+END//
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE `sp_import_stock`(
+    IN p_user_id INT,
+    IN p_product_id INT,
+    IN p_quantity INT,
+    IN p_note TEXT
+)
+BEGIN
+    -- Thêm phiếu nhập (đơn giản)
+    INSERT INTO import_receipts (user_id, note) VALUES (p_user_id, p_note);
+    SET @receipt_id = LAST_INSERT_ID();
+
+    -- Chi tiết sản phẩm nhập
+    INSERT INTO import_details (receipt_id, product_id, quantity) 
+    VALUES (@receipt_id, p_product_id, p_quantity);
+
+    -- Ghi nhật ký
+    INSERT INTO stock_logs (product_id, user_id, action, quantity, note)
+    VALUES (p_product_id, p_user_id, 'import', p_quantity, p_note);
+
+    -- Cập nhật tồn kho
+    UPDATE products SET sl_ton = sl_ton + p_quantity WHERE product_id = p_product_id;
+END//
+DELIMITER ;
 
 CREATE TABLE IF NOT EXISTS `stock_logs` (
   `log_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `action` enum('import','export') DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
+  `action` enum('import','export') NOT NULL,
+  `quantity` int(11) NOT NULL,
   `note` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`log_id`),
@@ -127,14 +177,38 @@ CREATE TABLE IF NOT EXISTS `stock_logs` (
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `full_name` varchar(100) DEFAULT NULL,
-  `role` enum('admin','nhanvien') DEFAULT 'nhanvien',
-  `created_at` datetime DEFAULT current_timestamp(),
+  `role` enum('admin','staff') DEFAULT 'staff',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+INSERT INTO `users` (`user_id`, `username`, `password`, `full_name`, `role`) VALUES
+	(1, 'staff', 'Hongbiet@123', 'Tui Là Staff', 'staff'),
+	(2, 'admin', 'Caigivay@123', 'khong biet', 'admin');
+
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='';
+DELIMITER //
+CREATE TRIGGER trg_after_export_detail
+AFTER INSERT ON export_details
+FOR EACH ROW
+BEGIN
+    UPDATE products SET sl_ton = sl_ton - NEW.quantity WHERE product_id = NEW.product_id;
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
+
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='';
+DELIMITER //
+CREATE TRIGGER trg_after_import_detail
+AFTER INSERT ON import_details
+FOR EACH ROW
+BEGIN
+    UPDATE products SET sl_ton = sl_ton + NEW.quantity WHERE product_id = NEW.product_id;
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
