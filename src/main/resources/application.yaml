@@ -5,10 +5,9 @@ server:
 
 spring:
   datasource:
-    url: yeume-enterprise.edu.vn
+    url: jdbc:mysql://yeume-enterprise.edu.vn:3306
     username: yeumeent_czmn
     password: concakgi@123
-    port: 3306
   jpa:
     hibernate:
       ddl-auto: update
