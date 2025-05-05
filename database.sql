@@ -10,16 +10,6 @@
 CREATE DATABASE IF NOT EXISTS `yeumeent_czmn` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 USE `yeumeent_czmn`;
 
-CREATE TABLE IF NOT EXISTS `brand` (
-  `brand_id` int(11) NOT NULL AUTO_INCREMENT,
-  `brand_name` varchar(100) NOT NULL,
-  PRIMARY KEY (`brand_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
-	(1, 'Motul'),
-	(2, 'Liqui Moly');
-
 CREATE TABLE IF NOT EXISTS `export_details` (
   `detail_id` int(11) NOT NULL AUTO_INCREMENT,
   `receipt_id` int(11) DEFAULT NULL,
