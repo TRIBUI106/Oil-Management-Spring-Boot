@@ -1,3 +1,16 @@
 server:
   application:
     name: QuanLyKhoNhot
+    
+
+
+spring:
+  datasource:
+    url: <database url>
+    username: <username>
+    password: <password>
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true #Cái này có th? t?t ?i nha nó s? hi?n câu truy v?n sql ? trong terminal
+
