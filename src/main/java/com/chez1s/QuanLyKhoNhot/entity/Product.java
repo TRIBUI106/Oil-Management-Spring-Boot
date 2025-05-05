@@ -11,6 +11,15 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-//@Entity //Có thể bật lên nếu muốn tự động tạo bảng theo entity có 
+//@Entity
 public class Product {
+
+    Integer id;
+    String code;
+    String name;
+    String capacity;
+    String brand;
+    Integer currentStock;
+    Integer newStock;
+
 }
