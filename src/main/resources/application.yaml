@@ -3,7 +3,7 @@ server:
     name: QuanLyKhoNhot
   port: 8386
   servlet:
-    context-path: /oil-management
+    context-path: /oil-management #???ng d?n m?c ??nh là http://localhost:8086/oil-management
 
 spring:
   datasource:
@@ -12,5 +12,6 @@ spring:
     password: concakgi@123
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update #ddl = Data Definition Language là các t?
+                       #??ng t?o VD: CREATE, ALTER, DROP (update nghãi là nó s? t? ??ng c?p nh?t c?u trúc database (b?ng, c?t) d?a vào các Entity ?ã ???c ??nh ngh?a
     show-sql: true # Cái này có th? t?t ?i nha nó s? hi?n câu truy v?n sql ? trong terminal
