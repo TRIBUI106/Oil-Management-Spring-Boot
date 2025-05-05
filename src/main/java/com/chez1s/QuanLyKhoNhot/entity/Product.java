@@ -1,6 +1,5 @@
 package com.chez1s.QuanLyKhoNhot.entity;
 
-import jakarta.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +10,6 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-//@Entity
 public class Product {
 
     Integer id;
