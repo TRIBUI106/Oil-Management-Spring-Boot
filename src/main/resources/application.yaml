@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    url: <database url>
-    username: <username>
-    password: <password>
+    url: yeume-enterprise.edu.vn
+    username: yeumeent_czmn
+    password: concakgi@123
   jpa:
     hibernate:
       ddl-auto: update
