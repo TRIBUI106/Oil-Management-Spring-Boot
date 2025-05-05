@@ -1,11 +1,11 @@
 package com.chez1s.QuanLyKhoNhot.service;
 
-import org.springframework.stereotype.Service;
+import com.chez1s.QuanLyKhoNhot.entity.Product;
 
-@Service
-public class ProductService {
+import java.util.List;
 
-    
+public interface ProductService {
 
+    List<Product> getAllProduct();
 
 }
