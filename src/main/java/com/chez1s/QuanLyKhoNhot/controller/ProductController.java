@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 // Báo hiệu thằng này là 1 cái Controller, tức là RestAPI
-@RequestMapping("oil")
+@RequestMapping("api/v1/oil")
 // Cái này là cái gì thì tôi không biết
 public class ProductController {
 
-        private final Product
+        private final ProductService productService;
 
 
 }
