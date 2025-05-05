@@ -2,6 +2,8 @@ server:
   application:
     name: QuanLyKhoNhot
   port: 8386
+  servlet:
+    context-path: /oil-management
 
 spring:
   datasource:
