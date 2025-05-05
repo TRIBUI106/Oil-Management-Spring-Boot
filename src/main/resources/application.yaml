@@ -1,8 +1,7 @@
 server:
   application:
     name: QuanLyKhoNhot
-    
-
+  port: <port>
 
 spring:
   datasource:
