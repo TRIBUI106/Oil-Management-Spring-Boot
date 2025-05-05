@@ -1,7 +1,7 @@
 server:
   application:
     name: QuanLyKhoNhot
-  port: <port>
+  port: 8386
 
 spring:
   datasource:
@@ -11,5 +11,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true #Cái này có th? t?t ?i nha nó s? hi?n câu truy v?n sql ? trong terminal
+    show-sql: true # Cái này có th? t?t ?i nha nó s? hi?n câu truy v?n sql ? trong terminal
 
