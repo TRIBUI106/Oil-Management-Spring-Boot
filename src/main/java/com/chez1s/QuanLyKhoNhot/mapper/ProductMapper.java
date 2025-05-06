@@ -20,10 +20,15 @@ public interface ProductMapper {
     List<Product> getAllProduct();
 
     // Post ( thêm sản phẩm nhớt vào )
-    @Insert("INSERT INTO products (product_code, product_name, capacity, brand, current_stock, new_stock) " +
+    @Insert("INSERT INTO products (product_code, product_name, capacity, brand, currentStock, newStock) " +
             "VALUES (#{code}, #{name}, #{capacity}, #{brand}, #{currentStock}, #{newStock})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void insertProduct(Product product);
+
+    // Cai nay la xoa product ne
+    @Delete("DELETE FROM products WHERE product_id = #{id}")
+    void deleteProductById(Integer id);
+
 
 
 }
