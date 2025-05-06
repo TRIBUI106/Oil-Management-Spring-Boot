@@ -13,15 +13,14 @@ import java.util.List;
 public interface ProductMapper {
 
 
-    @Select("select p.product_id, \n" +
-            "       p.product_code, \n" +
-            "       p.product_name, \n" +
-            "       p.capacity, \n" +
-            "       p.brand, \n" +
-            "       p.brand, \n" +
-            "       p.currentStock, \n" +
-            "       p.newStock\n" +
-            "from products p")
+    @Select("SELECT p.product_id AS id, \n" +
+            "       p.product_code AS code, \n" +
+            "       p.product_name AS name, \n" +
+            "       p.capacity AS capacity, \n" +
+            "       p.brand AS brand, \n" +
+            "       p.current_stock AS currentStock, \n" +
+            "       p.new_stock AS newStock \n" +
+            "FROM products p")
     List<Product> getAllProduct();
 
 
