@@ -37,5 +37,11 @@ public class ProductController {
         return ResponseEntity.ok("Thêm sản phẩm thành công!");
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable Integer id) {
+        productService.deleteProductById(id);
+        return ResponseEntity.ok("Xoá sản phẩm thành công!");
+    }
+
 
 }
