@@ -23,7 +23,6 @@ public class ProductController {
     }
 
     /**
-     *
      * @return Danh sách nhớt
      */
     @GetMapping("get")
@@ -31,10 +30,12 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProduct());
     }
 
-//    Phương thức add
-//    @PostMapping("add")
-//    public void addProduct(@RequestBody Product product) {
-//        productService.addProduct(product);
-//    }
+
+    @PostMapping("post")
+    public ResponseEntity<String> addProduct(@RequestBody Product product) {
+        productService.insertProduct(product);
+        return ResponseEntity.ok("Thêm sản phẩm thành công!");
+    }
+
 
 }

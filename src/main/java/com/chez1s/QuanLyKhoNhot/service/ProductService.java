@@ -11,6 +11,7 @@ public interface ProductService {
     @Bean
     List<Product> getAllProduct();
 
+    void insertProduct(Product product);
 
 
 }
