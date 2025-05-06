@@ -23,4 +23,6 @@ public interface ProductMapper {
             "FROM products p")
     List<Product> getAllProduct();
 
+
+
 }

@@ -31,6 +31,10 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProduct());
     }
 
-
+//    Phương thức add
+//    @PostMapping("add")
+//    public void addProduct(@RequestBody Product product) {
+//        productService.addProduct(product);
+//    }
 
 }
