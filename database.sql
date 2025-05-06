@@ -64,20 +64,20 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `capacity` varchar(20) DEFAULT NULL,
   `brand` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `currentStock` int(11) DEFAULT 0,
-  `newStock` int(11) DEFAULT 0,
+  `current_stock` int(11) DEFAULT 0,
+  `new_stock` int(11) DEFAULT 0,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`, `brand`, `currentStock`, `newStock`) VALUES
-	(23, NULL, 'Scooter Le 10W40', '800ML', 'Motul', 0, 0),
-	(24, NULL, 'Scooter Le MB 10W40', '800ML', 'Motul', 0, 0),
-	(25, NULL, 'GP Power 10W40', '800ML', 'Motul', 0, 0),
-	(26, NULL, '7100 10W40', '1L2', 'Motul', 0, 0),
-	(27, NULL, '7100 10W40', '1L', 'Motul', 0, 0),
-	(28, NULL, '7100 10W50', '1L', 'Motul', 0, 0),
-	(29, NULL, 'Nhớt Láp', 'Tuýp', 'Motul', 0, 0),
-	(30, NULL, 'Nhớt AVANA 10W40', '800ML', 'Motul', 0, 0),
+INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`, `brand`, `current_stock`, `new_stock`) VALUES
+	(23, '', 'Scooter Le 10W40', '800ML', 'Motul', 0, 0),
+	(24, '', 'Scooter Le MB 10W40', '800ML', 'Motul', 0, 0),
+	(25, '', 'GP Power 10W40', '800ML', 'Motul', 0, 0),
+	(26, '', '7100 10W40', '1L2', 'Motul', 0, 0),
+	(27, '', '7100 10W40', '1L', 'Motul', 0, 0),
+	(28, '', '7100 10W50', '1L', 'Motul', 0, 0),
+	(29, '', 'Nhớt Láp', 'Tuýp', 'Motul', 0, 0),
+	(30, '', 'Nhớt AVANA 10W40', '800ML', 'Motul', 100, 50),
 	(31, '20753', 'Street Race 10W40', '1L', 'Liqui Moly', 0, 0),
 	(32, '20826', 'Scooter Race 10W40', '1L', 'Liqui Moly', 0, 0),
 	(33, '21718', 'Molygen Scooter 5W30', '1L', 'Liqui Moly', 0, 0),

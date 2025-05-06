@@ -4,6 +4,7 @@ import com.chez1s.QuanLyKhoNhot.entity.Product;
 import com.chez1s.QuanLyKhoNhot.service.ProductService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,5 +44,10 @@ public class ProductController {
         return ResponseEntity.ok("Xoá sản phẩm thành công!");
     }
 
+    @PutMapping("put")
+    public ResponseEntity<String> updateProduct(@RequestBody Product product) {
+        productService.updateProductById(product);
+        return ResponseEntity.ok("Cập nhật sản phẩm thành công!");
+    }
 
 }

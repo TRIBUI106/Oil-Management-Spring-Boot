@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface ProductService {
 
-    @Bean
     List<Product> getAllProduct();
 
     void insertProduct(Product product);
 
     void deleteProductById(Integer id);
 
+    void updateProductById(Product product);
 
 
 }
