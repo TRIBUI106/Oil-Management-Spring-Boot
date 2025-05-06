@@ -18,10 +18,9 @@ public interface ProductMapper {
             "       p.product_name AS name, \n" +
             "       p.capacity AS capacity, \n" +
             "       p.brand AS brand, \n" +
-            "       p.current_stock AS currentStock, \n" +
-            "       p.new_stock AS newStock \n" +
+            "       p.currentStock AS currentStock, \n" +
+            "       p.newStock AS newStock \n" +
             "FROM products p")
     List<Product> getAllProduct();
-
 
 }
