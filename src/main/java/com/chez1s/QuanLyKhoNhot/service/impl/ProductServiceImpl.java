@@ -27,6 +27,12 @@ public class ProductServiceImpl implements ProductService {
         productMapper.insertProduct(product);
     }
 
+    @Override
+    public void deleteProductById(Integer id) {
+        productMapper.deleteProductById(id);
+    }
+
+
 
 
 
