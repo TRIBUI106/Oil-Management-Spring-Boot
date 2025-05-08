@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 ApiRespone.builder()
                         .success(false)
-                        .code("400")
+                        .status("400")
                         .message("Lỗi xử lý: " + ex.getMessage())
                         .data(null)
                         .build()
@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
                 ApiRespone.builder()
                         .success(false)
-                        .code("500")
+                        .status("500")
                         .message("Lỗi database: " + ex.getMessage())
                         .data(null)
                         .build()
@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
                 ApiRespone.builder()
                         .success(false)
-                        .code("500")
+                        .status("500")
                         .message("Lỗi không xác định: " + ex.getMessage())
                         .data(null)
                         .build()

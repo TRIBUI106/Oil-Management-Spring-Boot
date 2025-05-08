@@ -8,7 +8,7 @@ public class ApiResponeHelper {
     public static <T> ResponseEntity<ApiRespone<T>> success(T data, String message) {
         ApiRespone<T> response = ApiRespone.<T>builder()
                 .success(true)
-                .code("200")
+                .status("200")
                 .message(message)
                 .data(data)
                 .build();
@@ -18,7 +18,7 @@ public class ApiResponeHelper {
     public static <T> ResponseEntity<ApiRespone<T>> error(String message) {
         ApiRespone<T> response = ApiRespone.<T>builder()
                 .success(false)
-                .code("500")
+                .status("500")
                 .message(message)
                 .data(null)
                 .build();
@@ -28,7 +28,7 @@ public class ApiResponeHelper {
     public static <T> ResponseEntity<ApiRespone<T>> error(String code, String message, HttpStatus status) {
         ApiRespone<T> response = ApiRespone.<T>builder()
                 .success(false)
-                .code(code)
+                .status(code)
                 .message(message)
                 .data(null)
                 .build();
