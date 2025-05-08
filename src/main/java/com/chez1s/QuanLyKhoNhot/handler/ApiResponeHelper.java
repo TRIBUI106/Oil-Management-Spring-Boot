@@ -1,23 +1,37 @@
 package com.chez1s.QuanLyKhoNhot.handler;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 public class ApiResponeHelper {
 
-    public static <T> ApiRespone<T> success(String message, T data) {
-        return ApiRespone.<T>builder()
+    public static <T> ResponseEntity<ApiRespone<T>> success(T data, String message) {
+        ApiRespone<T> response = ApiRespone.<T>builder()
                 .success(true)
                 .code("200")
                 .message(message)
                 .data(data)
                 .build();
+        return ResponseEntity.ok(response);
     }
 
-    public static <T> ApiRespone<T> failed(String code, String message) {
-        return ApiRespone.<T>builder()
+    public static <T> ResponseEntity<ApiRespone<T>> error(String message) {
+        ApiRespone<T> response = ApiRespone.<T>builder()
+                .success(false)
+                .code("500")
+                .message(message)
+                .data(null)
+                .build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+    }
+
+    public static <T> ResponseEntity<ApiRespone<T>> error(String code, String message, HttpStatus status) {
+        ApiRespone<T> response = ApiRespone.<T>builder()
                 .success(false)
                 .code(code)
                 .message(message)
                 .data(null)
                 .build();
+        return ResponseEntity.status(status).body(response);
     }
-    
 }
