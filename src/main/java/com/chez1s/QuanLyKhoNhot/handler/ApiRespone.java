@@ -5,8 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-// @Data nó là cả @Getter @Setter nha
+//@Data
+//// @Data nó là cả @Getter @Setter @toString @Equals g đó
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
