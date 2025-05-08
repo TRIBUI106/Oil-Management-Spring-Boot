@@ -16,5 +16,5 @@ public class ProductResponseDto {
     String brand;
     Integer currentStock;
     Integer newStock;
-    
+
 }
