@@ -1,6 +1,6 @@
 package com.chez1s.QuanLyKhoNhot.controller;
 
-import com.chez1s.QuanLyKhoNhot.dto.ProductDTO;
+import com.chez1s.QuanLyKhoNhot.dto.response.ProductDTO;
 import com.chez1s.QuanLyKhoNhot.entity.Product;
 import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.handler.ApiResponeHelper;

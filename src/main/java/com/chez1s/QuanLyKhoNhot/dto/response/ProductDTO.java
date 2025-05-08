@@ -1,7 +1,6 @@
-package com.chez1s.QuanLyKhoNhot.dto;
+package com.chez1s.QuanLyKhoNhot.dto.response;
 
 import lombok.*;
-import org.apache.ibatis.annotations.ConstructorArgs;
 
 @Data
 @Getter
