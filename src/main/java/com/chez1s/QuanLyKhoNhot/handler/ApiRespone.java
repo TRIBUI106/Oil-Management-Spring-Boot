@@ -13,6 +13,7 @@ import lombok.*;
 public class ApiRespone<T> {
 
     private boolean success;
+    private String code;
     private String message;
     private T data;
 
