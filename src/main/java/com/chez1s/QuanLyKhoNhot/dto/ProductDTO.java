@@ -1,8 +1,13 @@
 package com.chez1s.QuanLyKhoNhot.dto;
 
-import lombok.Data;
+import lombok.*;
+import org.apache.ibatis.annotations.ConstructorArgs;
 
 @Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductDTO {
     private Integer id;
     private String name;

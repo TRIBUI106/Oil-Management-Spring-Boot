@@ -1,5 +1,6 @@
 package com.chez1s.QuanLyKhoNhot.controller;
 
+import com.chez1s.QuanLyKhoNhot.dto.ProductDTO;
 import com.chez1s.QuanLyKhoNhot.entity.Product;
 import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.handler.ApiResponeHelper;
@@ -30,6 +31,28 @@ public class ProductController {
             return ApiResponeHelper.error("Lỗi khi lấy danh sách sản phẩm: " + e.getMessage());
         }
     }
+
+    @GetMapping("getForUI")
+    public ResponseEntity<ApiRespone<List<ProductDTO>>> getForUI() {
+        try {
+            List<Product> products = productService.getAllProduct();
+            // Chuyển đổi và thêm thông tin nếu cần
+            List<ProductDTO> productDTOs = products.stream()
+                    .map(product -> new ProductDTO(
+                            product.getId(),
+                            product.getName(),
+                            product.getCapacity(),
+                            product.getBrand(),
+                            product.getCurrentStock(),
+                            product.getNewStock()))
+                    .collect(Collectors.toList());
+
+            return ApiResponeHelper.success(productDTOs, "Lấy danh sách sản phẩm cho UI thành công");
+        } catch (Exception e) {
+            return ApiResponeHelper.error("Lỗi khi lấy danh sách sản phẩm cho UI: " + e.getMessage());
+        }
+    }
+
 
     @PostMapping("post")
     public ResponseEntity<ApiRespone<String>> addProduct(@RequestBody Product product) {
