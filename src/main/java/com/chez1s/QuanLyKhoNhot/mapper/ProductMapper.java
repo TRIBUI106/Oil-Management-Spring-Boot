@@ -25,8 +25,8 @@ public interface ProductMapper {
     void insertProduct(@Param("p") Product product);
 
     // Cai nay la xoa product ne
-    @Delete("DELETE FROM products WHERE product_id = #{id}")
-    void deleteProductById(Integer id);
+    @Delete("DELETE FROM products WHERE product_id = #{i}")
+    void deleteProductById(@Param("i") Integer id);
 
     // Cai nay la update nha
     @Update("UPDATE products SET " +
