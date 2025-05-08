@@ -30,14 +30,14 @@ public interface ProductMapper {
 
     // Cai nay la update nha
     @Update("UPDATE products SET " +
-            "product_code = #{code}, " +
-            "product_name = #{name}, " +
-            "capacity = #{capacity}, " +
-            "brand = #{brand}, " +
-            "current_stock = #{currentStock}, " +
-            "new_stock = #{newStock} " +
-            "WHERE product_id = #{id}")
-    void updateProductById(Product product);
+            "product_code = #{p.code}, " +
+            "product_name = #{p.name}, " +
+            "capacity = #{p.capacity}, " +
+            "brand = #{p.brand}, " +
+            "current_stock = #{p.currentStock}, " +
+            "new_stock = #{p.newStock} " +
+            "WHERE product_id = #{p.id}")
+    void updateProductById(@Param("p") Product product);
 
 
 
