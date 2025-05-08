@@ -1,6 +1,7 @@
 package com.chez1s.QuanLyKhoNhot.controller;
 
 import com.chez1s.QuanLyKhoNhot.entity.Product;
+import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.service.ProductService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,14 @@ public class ProductController {
      * @return Danh sách nhớt
      */
     @GetMapping("get")
-    public ResponseEntity<List<Product>> getAllProduct() {
-        return ResponseEntity.ok(productService.getAllProduct());
+    public ResponseEntity<ApiRespone<List<Product>>> getAllProduct() {
+        List<Product> products = productService.getAllProduct();
+        ApiRespone<List<Product>> response = ApiRespone.<List<Product>>builder()
+                .success(true)
+                .message("Success")
+                .data(products)
+                .build();
+        return ResponseEntity.ok(response);
     }
 
 
