@@ -25,33 +25,48 @@ public class ProductController {
         this.productService = productService;
     }
 
-    /**
-     * @return Danh sách nhớt
-     */
     @GetMapping("get")
     public ResponseEntity<ApiRespone<List<Product>>> getAllProduct() {
         List<Product> products = productService.getAllProduct();
-        return ResponseEntity.ok(ApiResponeHelper.success("Lấy sản phẩm thành công", products));
+        return ResponseEntity.ok(ApiRespone.<List<Product>>builder()
+                .success(true)
+                .code("200")
+                .message("Lấy danh sách sản phẩm thành công")
+                .data(products)
+                .build());
     }
 
-
-
     @PostMapping("post")
-    public ResponseEntity<String> addProduct(@RequestBody Product product) {
+    public ResponseEntity<ApiRespone<String>> addProduct(@RequestBody Product product) {
         productService.insertProduct(product);
-        return ResponseEntity.ok("Thêm sản phẩm thành công!");
+        return ResponseEntity.ok(ApiRespone.<String>builder()
+                .success(true)
+                .code("200")
+                .message("Thêm sản phẩm thành công")
+                .data(null)
+                .build());
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable Integer id) {
+    public ResponseEntity<ApiRespone<String>> deleteProduct(@PathVariable Integer id) {
         productService.deleteProductById(id);
-        return ResponseEntity.ok("Xoá sản phẩm thành công!");
+        return ResponseEntity.ok(ApiRespone.<String>builder()
+                .success(true)
+                .code("200")
+                .message("Xoá sản phẩm thành công")
+                .data(null)
+                .build());
     }
 
     @PutMapping("put")
-    public ResponseEntity<String> updateProduct(@RequestBody Product product) {
+    public ResponseEntity<ApiRespone<String>> updateProduct(@RequestBody Product product) {
         productService.updateProductById(product);
-        return ResponseEntity.ok("Cập nhật sản phẩm thành công!");
+        return ResponseEntity.ok(ApiRespone.<String>builder()
+                .success(true)
+                .code("200")
+                .message("Cập nhật sản phẩm thành công")
+                .data(null)
+                .build());
     }
 
 }
