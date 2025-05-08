@@ -40,7 +40,6 @@ public class ProductController {
             // Chuyển đổi và thêm thông tin nếu cần
             List<ProductDTO> productDTOs = products.stream()
                     .map(product -> new ProductDTO(
-                            product.getId(),
                             product.getName(),
                             product.getCapacity(),
                             product.getBrand(),
