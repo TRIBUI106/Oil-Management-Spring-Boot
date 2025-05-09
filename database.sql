@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `current_stock` int(11) DEFAULT 0,
   `new_stock` int(11) DEFAULT 0,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`, `brand`, `current_stock`, `new_stock`) VALUES
 	(23, '', 'Scooter Le 10W40', '800ML', 'Motul', 0, 0),
@@ -91,7 +91,7 @@ INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`
 	(41, '2427', 'Súc Rửa Động Cơ', '500ML', 'Liqui Moly', 0, 0),
 	(42, '1680', 'Nhớt Hộp Số Xe Ga 80W90', '150ML', 'Liqui Moly', 0, 0),
 	(43, '3325', 'VS Cổ Họng Ga', '400ML', 'Liqui Moly', 0, 0),
-	(44, '21611', 'VS Bóng Nhanh Detalinh', '500ML', 'Liqui Moly', 0, 0);
+	(44, '21611', 'VS Bóng Nhanh Detailing', '500ML', 'Liqui Moly', 0, 0);
 
 DELIMITER //
 CREATE PROCEDURE `sp_export_stock`(
