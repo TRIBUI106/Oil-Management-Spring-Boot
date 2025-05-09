@@ -69,29 +69,29 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`, `brand`, `current_stock`, `new_stock`) VALUES
-	(23, '', 'Scooter Le 10W40', '800ML', 'Motul', 0, 0),
-	(24, '', 'Scooter Le MB 10W40', '800ML', 'Motul', 0, 0),
-	(25, '', 'GP Power 10W40', '800ML', 'Motul', 0, 0),
-	(26, '', '7100 10W40', '1L2', 'Motul', 0, 0),
-	(27, '', '7100 10W40', '1L', 'Motul', 0, 0),
-	(28, '', '7100 10W50', '1L', 'Motul', 0, 0),
-	(29, '', 'Nhớt Láp', 'Tuýp', 'Motul', 0, 0),
-	(30, '', 'Nhớt AVANA 10W40', '800ML', 'Motul', 100, 50),
-	(31, '20753', 'Street Race 10W40', '1L', 'Liqui Moly', 0, 0),
-	(32, '20826', 'Scooter Race 10W40', '1L', 'Liqui Moly', 0, 0),
-	(33, '21718', 'Molygen Scooter 5W30', '1L', 'Liqui Moly', 0, 0),
-	(34, '21895', 'Molygen Scooter 5W30', '0.8L', 'Liqui Moly', 0, 0),
-	(35, '3036', 'Formula 4T 10W400', '0.8L', 'Liqui Moly', 0, 0),
-	(36, '1521', 'Synthetic 10W40 Street', '1L', 'Liqui Moly', 0, 0),
-	(37, '6924', 'Nước Làm Mát', '1L', 'Liqui Moly', 0, 0),
-	(38, '1803', 'Xúc Pet Xăng Xe Hơi', '300ML', 'Liqui Moly', 0, 0),
-	(39, '7916', 'Xúc Pet Xăng Xe Máy', '80ML', 'Liqui Moly', 0, 0),
-	(40, '1516', 'Nhớt Láp', '500ML', 'Liqui Moly', 0, 0),
-	(41, '2427', 'Súc Rửa Động Cơ', '500ML', 'Liqui Moly', 0, 0),
-	(42, '1680', 'Nhớt Hộp Số Xe Ga 80W90', '150ML', 'Liqui Moly', 0, 0),
-	(43, '3325', 'VS Cổ Họng Ga', '400ML', 'Liqui Moly', 0, 0),
-	(44, '21611', 'VS Bóng Nhanh Detailing', '500ML', 'Liqui Moly', 0, 0);
+INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`, `brand`, `current_stock`, `new_stock`, `image_url`) VALUES
+	(23, '', 'Scooter Le 10W40', '800ML', 'Motul', 0, 0, NULL),
+	(24, '', 'Scooter Le MB 10W40', '800ML', 'Motul', 0, 0, NULL),
+	(25, '', 'GP Power 10W40', '800ML', 'Motul', 0, 0, NULL),
+	(26, '', '7100 10W40', '1L2', 'Motul', 0, 0, NULL),
+	(27, '', '7100 10W40', '1L', 'Motul', 0, 0, NULL),
+	(28, '', '7100 10W50', '1L', 'Motul', 0, 0, NULL),
+	(29, '', 'Nhớt Láp', 'Tuýp', 'Motul', 0, 0, NULL),
+	(30, '', 'Nhớt AVANA 10W40', '800ML', 'Motul', 100, 50, NULL),
+	(31, '20753', 'Street Race 10W40', '1L', 'Liqui Moly', 0, 0, NULL),
+	(32, '20826', 'Scooter Race 10W40', '1L', 'Liqui Moly', 0, 0, NULL),
+	(33, '21718', 'Molygen Scooter 5W30', '1L', 'Liqui Moly', 0, 0, NULL),
+	(34, '21895', 'Molygen Scooter 5W30', '0.8L', 'Liqui Moly', 0, 0, NULL),
+	(35, '3036', 'Formula 4T 10W400', '0.8L', 'Liqui Moly', 0, 0, NULL),
+	(36, '1521', 'Synthetic 10W40 Street', '1L', 'Liqui Moly', 0, 0, NULL),
+	(37, '6924', 'Nước Làm Mát', '1L', 'Liqui Moly', 0, 0, NULL),
+	(38, '1803', 'Xúc Pet Xăng Xe Hơi', '300ML', 'Liqui Moly', 0, 0, NULL),
+	(39, '7916', 'Xúc Pet Xăng Xe Máy', '80ML', 'Liqui Moly', 0, 0, NULL),
+	(40, '1516', 'Nhớt Láp', '500ML', 'Liqui Moly', 0, 0, NULL),
+	(41, '2427', 'Súc Rửa Động Cơ', '500ML', 'Liqui Moly', 0, 0, NULL),
+	(42, '1680', 'Nhớt Hộp Số Xe Ga 80W90', '150ML', 'Liqui Moly', 0, 0, NULL),
+	(43, '3325', 'VS Cổ Họng Ga', '400ML', 'Liqui Moly', 0, 0, NULL),
+	(44, '21611', 'VS Bóng Nhanh Detailing', '500ML', 'Liqui Moly', 0, 0, NULL);
 
 DELIMITER //
 CREATE PROCEDURE `sp_export_stock`(
