@@ -26,7 +26,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("get-all-products")
+    @GetMapping
     public ResponseEntity<ApiRespone<List<Product>>> getAllProduct() {
         try {
             List<Product> products = productService.getAllProduct();
@@ -57,7 +57,7 @@ public class ProductController {
     }
 
 
-    @PostMapping("post")
+    @PostMapping
     public ResponseEntity<ApiRespone<String>> addProduct(@RequestBody Product product) {
         try {
             productService.insertProduct(product);
@@ -67,7 +67,7 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<ApiRespone<String>> deleteProduct(@PathVariable Integer id) {
         try {
             productService.deleteProductById(id);
@@ -77,7 +77,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("put")
+    @PutMapping
     public ResponseEntity<ApiRespone<String>> updateProduct(@RequestBody Product product) {
         try {
             productService.updateProductById(product);
