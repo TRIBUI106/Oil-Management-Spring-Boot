@@ -24,8 +24,7 @@
         current_stock,
         new_stock
     </sql>
-
-
+    
     <select id="getAllProduct" resultMap="ProductResultMap">
         SELECT
         <include refid="BaseColumn"/>
