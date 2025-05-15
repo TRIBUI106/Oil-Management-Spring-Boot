@@ -13,12 +13,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/v1/oil")
+@RequestMapping("api/v1/products")
 public class ProductController {
 
+    // Depen Injection kieu khac
+//    @Autowired
+//    private ProductService productService;
+    
     private final ProductService productService;
 
-    @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
