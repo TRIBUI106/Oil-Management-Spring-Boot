@@ -19,14 +19,14 @@ public class ProductController {
     // Depen Injection kieu khac
 //    @Autowired
 //    private ProductService productService;
-    
+
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @GetMapping("get")
+    @GetMapping("get-all-products")
     public ResponseEntity<ApiRespone<List<Product>>> getAllProduct() {
         try {
             List<Product> products = productService.getAllProduct();
@@ -36,7 +36,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("getForUI")
+    @GetMapping("get-for-ui")
     public ResponseEntity<ApiRespone<List<ProductDTO>>> getForUI() {
         try {
             List<Product> products = productService.getAllProduct();
