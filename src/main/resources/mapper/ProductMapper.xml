@@ -27,8 +27,11 @@
 
 
     <select id="getAllProduct" resultMap="ProductResultMap">
-        SELECT * FROM products
+        SELECT
+        <include refid="BaseColumn"/>
+        FROM products
     </select>
+
 
     <insert id="insertProduct" parameterType="com.chez1s.QuanLyKhoNhot.entity.Product">
         INSERT INTO products (product_name, capacity, brand, current_stock, new_stock)
