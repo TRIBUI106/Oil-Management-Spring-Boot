@@ -9,14 +9,6 @@ import java.util.List;
 public interface ProductMapper {
 
     // Get toàn bộ sản phẩm nhớt
-    @Select("SELECT p.product_id AS id, \n" +
-            "       p.product_code AS code, \n" +
-            "       p.product_name AS name, \n" +
-            "       p.capacity AS capacity, \n" +
-            "       p.brand AS brand, \n" +
-            "       p.current_stock AS currentStock, \n" +
-            "       p.new_stock AS newStock \n" +
-            "FROM products p")
     List<Product> getAllProduct();
 
     // Post ( thêm sản phẩm nhớt vào )

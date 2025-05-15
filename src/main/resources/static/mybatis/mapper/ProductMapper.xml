@@ -4,11 +4,23 @@
 <mapper namespace="com.chez1s.QuanLyKhoNhot.mapper.ProductMapper">
 
     <resultMap id="BaseResultMap" type="Product">
-        <id property="" column="" />
+        <id property="id" column="product_id" />
+        <id property="code" column="product_code" />
+        <id property="name" column="product_name" />
+        <id property="capacity" column="capacity" />
+        <id property="brand" column="brand" />
+        <id property="currentStock" column="current_stock" />
+        <id property="newStock" column="new_stock" />
     </resultMap>
 
     <sql id="BaseColumn">
-
+        id,
+        code,
+        name,
+        capacity,
+        brand,
+        currentStock,
+        newStock
     </sql>
 
     <select id="getAllProduct">
