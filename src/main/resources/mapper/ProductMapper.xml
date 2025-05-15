@@ -17,12 +17,12 @@
 
     <sql id="BaseColumn">
         product_id,
-    product_code,
-    product_name,
-    capacity,
-    brand,
-    current_stock,
-    new_stock
+        product_code,
+        product_name,
+        capacity,
+        brand,
+        current_stock,
+        new_stock
     </sql>
 
 
