@@ -7,6 +7,9 @@
 
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!--        Cái này để tránh null khi get ( Chat GPT nói vậy ) -->
+        <setting name="callSettersOnNulls" value="true"/>
     </settings>
 
     <typeAliases>
