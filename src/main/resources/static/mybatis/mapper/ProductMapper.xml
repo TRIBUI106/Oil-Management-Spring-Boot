@@ -3,6 +3,14 @@
 
 <mapper namespace="com.chez1s.QuanLyKhoNhot.mapper.ProductMapper">
 
+    <resultMap id="BaseResultMap" type="Product">
+        <id property="" column="" />
+    </resultMap>
+
+    <sql id="BaseColumn">
+
+    </sql>
+
     <select id="getAllProduct">
         SELECT p.product_id AS id
                    p.product_code AS code
