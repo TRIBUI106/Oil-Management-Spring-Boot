@@ -3,4 +3,15 @@
 
 <mapper namespace="com.chez1s.QuanLyKhoNhot.mapper.ProductMapper">
 
+    <select id="getAllProduct">
+        SELECT p.product_id AS id
+                   p.product_code AS code
+                   p.product_name AS name
+                   p.capacity AS capacity
+                   p.brand AS brand
+                   p.current_stock AS currentStock
+                   p.new_stock AS newStock
+            FROM products p
+    </select>
+
 </mapper>
