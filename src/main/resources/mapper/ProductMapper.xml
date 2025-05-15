@@ -15,6 +15,17 @@
         <result property="newStock" column="new_stock"/>
     </resultMap>
 
+    <sql id="BaseColumn">
+        product_id,
+    product_code,
+    product_name,
+    capacity,
+    brand,
+    current_stock,
+    new_stock
+    </sql>
+
+
     <select id="getAllProduct" resultMap="ProductResultMap">
         SELECT * FROM products
     </select>
