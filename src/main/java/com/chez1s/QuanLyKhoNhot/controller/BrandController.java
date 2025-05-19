@@ -1,11 +1,14 @@
 package com.chez1s.QuanLyKhoNhot.controller;
 
+import com.chez1s.QuanLyKhoNhot.entity.Brand;
 import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/brands")
@@ -18,8 +21,10 @@ public class BrandController {
     }
 
     @GetMapping
-    public ResponseEntity responseEntity () {
-        
+    public List<Brand> getAllBrands() {
+        return brandService.getAll();
     }
+
+
 
 }
