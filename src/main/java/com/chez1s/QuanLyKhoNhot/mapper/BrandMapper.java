@@ -22,7 +22,8 @@ public interface BrandMapper {
             "WHERE id = #{id}")
     int updateBrand(@Param("id") int id, @Param("name") String name);
 
-    @Delete("DELETE FROM brand" +
+    @Delete("DELETE FROM brands " +
             "WHERE id = #{id}")
+    int deleteBrand(@Param("id") int id);
 
 }

@@ -35,4 +35,9 @@ public class BrandServiceImpl implements BrandService {
     public int updateBrandNameByID(int i, String s) {
         return brandMapper.updateBrand(i, s);
     }
+
+    @Override
+    public int deleteBrandByID(int id) {
+        return brandMapper.deleteBrand(id);
+    }
 }

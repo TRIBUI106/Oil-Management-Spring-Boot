@@ -14,4 +14,6 @@ public interface BrandService {
 
     int updateBrandNameByID(int id, String name);
 
+    int deleteBrandByID(int id);
+
 }
