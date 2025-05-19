@@ -3,6 +3,7 @@ package com.chez1s.QuanLyKhoNhot.controller;
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
 import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,12 @@ public class BrandController {
     public List<Brand> getAllBrands() {
         return brandService.getAll();
     }
+
+    @GetMapping("/{id}")
+    public Brand getBrandByID(int id) {
+        return brandService.getBrandByID(id);
+    }
+
 
 
 

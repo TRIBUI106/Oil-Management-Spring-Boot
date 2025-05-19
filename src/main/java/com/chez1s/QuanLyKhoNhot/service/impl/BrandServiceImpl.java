@@ -1,6 +1,7 @@
 package com.chez1s.QuanLyKhoNhot.service.impl;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
+
 import com.chez1s.QuanLyKhoNhot.mapper.BrandMapper;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
 import lombok.AccessLevel;
@@ -23,4 +24,15 @@ public class BrandServiceImpl implements BrandService {
     public List<Brand> getAll() {
         return brandMapper.getAll();
     }
+
+    @Override
+    public Brand getBrandByID(int id) {
+        return brandMapper.getBrandByID(id);
+    }
+
+    @Override
+    public int addBrand(String s) {
+        return brandMapper.addBrand(s);
+    }
+
 }

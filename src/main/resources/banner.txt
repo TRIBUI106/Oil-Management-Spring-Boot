@@ -7,7 +7,7 @@
  ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚══════╝
 
 
-APP: QuanLyKhoNhot
+APP: QuanLyKhoNhot ( hay vcl by cz & mn <3 )
 Version: ${application.version}
 Java: ${java.version}
 OS: ${os.name}
