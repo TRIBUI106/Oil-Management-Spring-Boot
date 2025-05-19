@@ -8,13 +8,11 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BrandServiceImpl implements BrandService {
 
-    BrandMapper brandMapper;
+    private final BrandMapper brandMapper;
 
-    public BrandMapper getBrandMapper(BrandMapper brandMapper) {
+    public BrandServiceImpl(BrandMapper brandMapper) {
         this.brandMapper = brandMapper;
     }
 }
