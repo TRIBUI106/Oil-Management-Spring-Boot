@@ -10,6 +10,6 @@ import java.util.List;
 public interface BrandMapper {
 
     @Select("SELECT id, brand from brands")
-    List<Brand> findAll();
+    List<Brand> getAll();
 
 }
