@@ -18,12 +18,12 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public List<Brand> getAll() {
-        return brandMapper.getAll();
+        return brandMapper.getAllBrand();
     }
 
     @Override
-    public int getBrandByID(int id) {
-        return brandMapper.getBrandByID(id);
+    public Brand getBrandByID(int id) {
+        return brandMapper.getBrandById(id);
     }
 
     @Override
@@ -33,11 +33,11 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public int updateBrandNameByID(int i, String s) {
-        return brandMapper.updateBrand(i, s);
+        return brandMapper.updateBrandById(i, s);
     }
 
     @Override
     public int deleteBrandByID(int id) {
-        return brandMapper.deleteBrand(id);
+        return brandMapper.deleteBrandById(id);
     }
 }
