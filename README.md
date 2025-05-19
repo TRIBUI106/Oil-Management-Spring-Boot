@@ -1,8 +1,3 @@
-Dạaaaaaaa\~ dưới đây là một file `README.md` đẹp mắt, chuẩn format Markdown, dành cho project **Spring Boot quản lý kho nhớt** của ông xã, tập trung vào CRUD `brands` và `products`:
-
----
-
-````markdown
 # 🛢️ QuanLyKhoNhot - Hệ thống quản lý kho nhớt
 
 > Ứng dụng web Spring Boot đơn giản hỗ trợ quản lý thương hiệu (`brands`) và sản phẩm (`products`) trong kho nhớt xe máy/ô tô.
