@@ -12,7 +12,6 @@
   - Bao gồm: mã, tên, dung tích, loại nhớt, thương hiệu, tồn kho.
 - 🔍 Tìm kiếm và lọc theo thương hiệu, loại sản phẩm, tồn kho.
 - 🌐 RESTful API rõ ràng, dễ tích hợp frontend.
-- 🔐 Phân quyền (nếu có).
 - 🧾 Ghi log hành động (nếu có bật).
 - 🇻🇳 Hỗ trợ đa ngôn ngữ (đang phát triển).
 
