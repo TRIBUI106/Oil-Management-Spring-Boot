@@ -19,14 +19,14 @@
 
 ## 🧱 Công nghệ sử dụng
 
-| Công nghệ          | Vai trò                                   | 
-|--------------------|-------------------------------------------|
-| **Java 21**        | Ngôn ngữ lập trình chính                  |
-| **Spring Boot 3.4**| Framework backend                         |
-| **MyBatis**        | ORM quản lý truy vấn DB                   |
-| **MariaDB**        | Cơ sở dữ liệu chính                       |
-| **Lombok**         | Rút gọn code model                        |
-| **Postman**        | Test API nhanh gọn                        |
+| Công nghệ            | Vai trò                                   | 
+|----------------------|-------------------------------------------|
+| **Java 21**          | Ngôn ngữ lập trình chính                  |
+| **Spring Boot 3.0.4**| Framework backend                         |
+| **MyBatis**          | ORM quản lý truy vấn DB                   |
+| **MariaDB**          | Cơ sở dữ liệu chính                       |
+| **Lombok**           | Rút gọn code model                        |
+| **Postman**          | Test API nhanh gọn                        |
 
 ---
 
