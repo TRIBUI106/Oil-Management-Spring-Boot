@@ -14,7 +14,7 @@ public class BrandServiceImpl implements BrandService {
 
     BrandMapper brandMapper;
 
-    
-
-
+    public BrandMapper getBrandMapper() {
+        return brandMapper;
+    }
 }
