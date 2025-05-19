@@ -1,10 +1,7 @@
 package com.chez1s.QuanLyKhoNhot.mapper;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,8 +12,17 @@ public interface BrandMapper {
     List<Brand> getAll();
 
     @Select("SELECT id, name from brands WHERE id = #{id}")
-    Brand getBrandByID(@Param("id") int i);
+    int getBrandByID(@Param("id") int i);
 
-    @Insert("INSERT INTO brands VALUE (#{name})")
+    @Insert("INSERT INTO brands(`name`) VALUE (#{name})")
     int addBrand(@Param("name") String s);
+
+    @Update("UPDATE brands " +
+            "SET name = #{name} " +
+            "WHERE id = #{id}")
+    int updateBrand(@Param("id") int id, @Param("name") String name);
+
+    @Delete("DELETE FROM brand" +
+            "WHERE id = #{id}")
+
 }

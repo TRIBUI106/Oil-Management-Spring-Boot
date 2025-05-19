@@ -1,12 +1,8 @@
 package com.chez1s.QuanLyKhoNhot.service.impl;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
-
 import com.chez1s.QuanLyKhoNhot.mapper.BrandMapper;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +22,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public Brand getBrandByID(int id) {
+    public int getBrandByID(int id) {
         return brandMapper.getBrandByID(id);
     }
 
@@ -35,4 +31,8 @@ public class BrandServiceImpl implements BrandService {
         return brandMapper.addBrand(s);
     }
 
+    @Override
+    public int updateBrandNameByID(int i, String s) {
+        return brandMapper.updateBrand(i, s);
+    }
 }
