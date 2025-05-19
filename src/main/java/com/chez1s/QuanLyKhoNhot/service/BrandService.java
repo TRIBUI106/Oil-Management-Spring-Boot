@@ -8,7 +8,7 @@ public interface BrandService {
 
     List<Brand> getAll();
 
-    int getBrandByID(int id);
+    Brand getBrandByID(int id);
 
     int addBrand(String brandName);
 

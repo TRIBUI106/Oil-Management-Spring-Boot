@@ -14,6 +14,7 @@
 
     <typeAliases>
         <typeAlias type="com.chez1s.QuanLyKhoNhot.entity.Product" alias="Product"/>
+        <typeAlias type="com.chez1s.QuanLyKhoNhot.entity.Brand" alias="Brand"/>
     </typeAliases>
 
 </configuration>
