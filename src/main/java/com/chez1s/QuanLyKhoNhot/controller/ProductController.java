@@ -5,6 +5,7 @@ import com.chez1s.QuanLyKhoNhot.entity.Product;
 import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.handler.ApiResponeHelper;
 import com.chez1s.QuanLyKhoNhot.service.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("api/v1/products")
 public class ProductController {
 
@@ -21,10 +23,6 @@ public class ProductController {
 //    private ProductService productService;
 
     private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
 
     @GetMapping
     public ResponseEntity<ApiRespone<List<Product>>> getAllProduct() {
