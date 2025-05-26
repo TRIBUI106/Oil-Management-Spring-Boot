@@ -16,5 +16,6 @@ public interface ProductService {
 
     void updateProductById(Product product);
 
+    List<Product> getByKeywords(String keywords)
 
 }
