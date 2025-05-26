@@ -32,7 +32,7 @@
         FROM products
     </select>
 
-    <select id="getByKeywords" parameterType="String">
+    <select id="getByKeywords" parameterType="String" resultMap="ProductResultMap">
         SELECT p.product_id,
                p.product_code,
                p.product_name,
