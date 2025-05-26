@@ -118,6 +118,7 @@ Dự án còn đơn giản nhưng đủ dùng cho quản lý kho nhớt ở các
 
 * Báo cáo tồn kho theo ngày/tháng
 * Nhập/xuất kho có lịch sử
-* Kết nối thiết bị đọc mã vạch (nếu cần)
+* Kết nối thiết bị đọc mã vạch
+* Log dữ liệu thông qua Telegram, Discord khi có thay đổi
 
 ---
