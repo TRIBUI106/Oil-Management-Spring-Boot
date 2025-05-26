@@ -1,0 +1,16 @@
+server:
+  application:
+    name: product-service
+  port: 8386
+  servlet:
+    context-path: /product
+
+spring:
+  datasource:
+    url: "jdbc:mysql://yeume-enterprise.edu.vn:3306/yeumeent_czmn"
+    username: "yeumeent_czmn"
+    password: "concakgi@123"
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
