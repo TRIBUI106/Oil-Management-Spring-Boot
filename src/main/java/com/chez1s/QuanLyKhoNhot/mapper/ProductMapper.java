@@ -14,4 +14,6 @@ public interface ProductMapper {
     void deleteProductById(Integer id);
 
     void updateProductById(Product product);
+
+    List<Product> getByKeywords(String s);
 }
