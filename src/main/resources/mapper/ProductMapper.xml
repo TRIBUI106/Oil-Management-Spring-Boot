@@ -33,20 +33,14 @@
     </select>
 
     <select id="getByKeywords" parameterType="String" resultMap="ProductResultMap">
-        SELECT p.product_id,
-               p.product_code,
-               p.product_name,
-               p.capacity,
-               p.brand,
-               p.current_stock,
-               p.new_stock,
-               p.image_url
+        SELECT
+        <include refid="BaseColumn"/>
         FROM products p
-                 LEFT JOIN yeumeent_czmn.brands b ON p.brand = b.id
+        LEFT JOIN yeumeent_czmn.brands b ON p.brand = b.id
         WHERE 1 = 1
-          AND UPPER(p.product_code) LIKE UPPER(CONCAT('%', ?, '%'))
-          AND UPPER(p.product_name) LIKE UPPER(CONCAT('%', ?, '%'))
-          AND UPPER(b.name) LIKE UPPER(CONCAT('%', ?, '%'))
+        AND UPPER(p.product_code) LIKE UPPER(CONCAT('%', #{keyword}, '%'))
+        AND UPPER(p.product_name) LIKE UPPER(CONCAT('%', #{keyword}, '%'))
+        AND UPPER(b.name) LIKE UPPER(CONCAT('%', #{keyword}, '%'))
     </select>
 
     <insert id="insertProduct" parameterType="com.chez1s.QuanLyKhoNhot.entity.Product">
