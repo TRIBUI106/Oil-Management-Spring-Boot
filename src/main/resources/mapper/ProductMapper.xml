@@ -16,7 +16,8 @@
     </resultMap>
 
     <sql id="BaseColumn">
-        product_id,
+        product_id
+        ,
         product_code,
         product_name,
         capacity,
@@ -31,23 +32,42 @@
         FROM products
     </select>
 
+    <select id="getByKeywords" parameterType="String" resultMap="ProductResultMap">
+        SELECT p.product_id,
+               p.product_code,
+               p.product_name,
+               p.capacity,
+               p.brand,
+               p.current_stock,
+               p.new_stock,
+               p.image_url
+        FROM products p
+                 LEFT JOIN yeumeent_czmn.brands b ON p.brand = b.id
+        WHERE 1 = 1
+            AND UPPER(p.product_code) LIKE UPPER(CONCAT('%', #{keyword}, '%'))
+           OR UPPER(p.product_name) LIKE UPPER(CONCAT('%', #{keyword}, '%'))
+           OR UPPER(b.name) LIKE UPPER(CONCAT('%', #{keyword}, '%'))
+    </select>
+
     <insert id="insertProduct" parameterType="com.chez1s.QuanLyKhoNhot.entity.Product">
         INSERT INTO products (product_name, capacity, brand, current_stock, new_stock)
         VALUES (#{name}, #{capacity}, #{brand}, #{currentStock}, #{newStock})
     </insert>
 
     <delete id="deleteProductById" parameterType="int">
-        DELETE FROM products WHERE product_id = #{id}
+        DELETE
+        FROM products
+        WHERE product_id = #{id}
     </delete>
 
     <update id="updateProductById" parameterType="com.chez1s.QuanLyKhoNhot.entity.Product">
         UPDATE products
-        SET product_code = #{code},
-            product_name = #{name},
-            capacity = #{capacity},
-            brand = #{brand},
+        SET product_code  = #{code},
+            product_name  = #{name},
+            capacity      = #{capacity},
+            brand         = #{brand},
             current_stock = #{currentStock},
-            new_stock = #{newStock}
+            new_stock     = #{newStock}
         WHERE product_id = #{id}
     </update>
 

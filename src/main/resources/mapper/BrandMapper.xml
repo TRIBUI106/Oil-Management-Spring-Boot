@@ -11,9 +11,16 @@
     </resultMap>
 
     <sql id="BaseColumn">
-        id,
+        id
+        ,
         name
     </sql>
+
+    <delete id="deleteBrandById" parameterType="int">
+        DELETE
+        FROM brands
+        WHERE id = #{id}
+    </delete>
 
     <select id="getAllBrand" resultMap="BrandResultMap">
         SELECT
@@ -37,10 +44,5 @@
         SET name = #{name}
         WHERE id = #{id}
     </update>
-
-    <delete id="deleteBrandById" parameterType="int">
-        DELETE FROM brands
-        WHERE id = #{id}
-    </delete>
 
 </mapper>

@@ -35,8 +35,8 @@ public class ProductServiceImpl implements ProductService {
         productMapper.updateProductById(product);
     }
 
-
-
-
-
+    @Override
+    public List<Product> getByKeywords(String keywords) {
+        return productMapper.getByKeywords(keywords);
+    }
 }

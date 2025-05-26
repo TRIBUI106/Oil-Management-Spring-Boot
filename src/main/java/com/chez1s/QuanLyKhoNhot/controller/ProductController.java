@@ -6,7 +6,6 @@ import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
 import com.chez1s.QuanLyKhoNhot.handler.ApiResponeHelper;
 import com.chez1s.QuanLyKhoNhot.service.ProductService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,6 +79,16 @@ public class ProductController {
         try {
             productService.updateProductById(product);
             return ApiResponeHelper.success(null, "Cập nhật sản phẩm thành công");
+        } catch (Exception e) {
+            return ApiResponeHelper.error("Lỗi khi cập nhật sản phẩm: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<ApiRespone<List<Product>>> searchProducts(@RequestParam String keyword) {
+        try {
+            List<Product> products = productService.getByKeywords(keyword);
+            return ApiResponeHelper.success(products, "Danh sách sản phẩm với tìm kiếm " + keyword);
         } catch (Exception e) {
             return ApiResponeHelper.error("Lỗi khi cập nhật sản phẩm: " + e.getMessage());
         }
