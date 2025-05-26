@@ -10,88 +10,52 @@
 CREATE DATABASE IF NOT EXISTS `yeumeent_czmn` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 USE `yeumeent_czmn`;
 
-CREATE TABLE IF NOT EXISTS `export_details` (
-  `detail_id` int(11) NOT NULL AUTO_INCREMENT,
-  `receipt_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  PRIMARY KEY (`detail_id`),
-  KEY `receipt_id` (`receipt_id`),
-  KEY `product_id` (`product_id`),
-  CONSTRAINT `export_details_ibfk_1` FOREIGN KEY (`receipt_id`) REFERENCES `export_receipts` (`receipt_id`),
-  CONSTRAINT `export_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+CREATE TABLE IF NOT EXISTS `brands` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-
-CREATE TABLE IF NOT EXISTS `export_receipts` (
-  `receipt_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `note` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`receipt_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `export_receipts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-
-CREATE TABLE IF NOT EXISTS `import_details` (
-  `detail_id` int(11) NOT NULL AUTO_INCREMENT,
-  `receipt_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  PRIMARY KEY (`detail_id`),
-  KEY `receipt_id` (`receipt_id`),
-  KEY `product_id` (`product_id`),
-  CONSTRAINT `import_details_ibfk_1` FOREIGN KEY (`receipt_id`) REFERENCES `import_receipts` (`receipt_id`),
-  CONSTRAINT `import_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-
-CREATE TABLE IF NOT EXISTS `import_receipts` (
-  `receipt_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `note` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`receipt_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `import_receipts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
+INSERT INTO `brands` (`id`, `name`) VALUES
+	(1, 'Motul'),
+	(2, 'Liqui Moly');
 
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_code` varchar(20) DEFAULT NULL,
   `product_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `capacity` varchar(20) DEFAULT NULL,
-  `brand` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `brand` int(11) DEFAULT NULL,
   `current_stock` int(11) DEFAULT 0,
   `new_stock` int(11) DEFAULT 0,
-  PRIMARY KEY (`product_id`)
+  `image_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`product_id`),
+  KEY `fk_brand` (`brand`),
+  CONSTRAINT `fk_brand` FOREIGN KEY (`brand`) REFERENCES `brands` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `capacity`, `brand`, `current_stock`, `new_stock`, `image_url`) VALUES
-	(23, '', 'Scooter Le 10W40', '800ML', 'Motul', 0, 0, NULL),
-	(24, '', 'Scooter Le MB 10W40', '800ML', 'Motul', 0, 0, NULL),
-	(25, '', 'GP Power 10W40', '800ML', 'Motul', 0, 0, NULL),
-	(26, '', '7100 10W40', '1L2', 'Motul', 0, 0, NULL),
-	(27, '', '7100 10W40', '1L', 'Motul', 0, 0, NULL),
-	(28, '', '7100 10W50', '1L', 'Motul', 0, 0, NULL),
-	(29, '', 'Nhớt Láp', 'Tuýp', 'Motul', 0, 0, NULL),
-	(30, '', 'Nhớt AVANA 10W40', '800ML', 'Motul', 100, 50, NULL),
-	(31, '20753', 'Street Race 10W40', '1L', 'Liqui Moly', 0, 0, NULL),
-	(32, '20826', 'Scooter Race 10W40', '1L', 'Liqui Moly', 0, 0, NULL),
-	(33, '21718', 'Molygen Scooter 5W30', '1L', 'Liqui Moly', 0, 0, NULL),
-	(34, '21895', 'Molygen Scooter 5W30', '0.8L', 'Liqui Moly', 0, 0, NULL),
-	(35, '3036', 'Formula 4T 10W400', '0.8L', 'Liqui Moly', 0, 0, NULL),
-	(36, '1521', 'Synthetic 10W40 Street', '1L', 'Liqui Moly', 0, 0, NULL),
-	(37, '6924', 'Nước Làm Mát', '1L', 'Liqui Moly', 0, 0, NULL),
-	(38, '1803', 'Xúc Pet Xăng Xe Hơi', '300ML', 'Liqui Moly', 0, 0, NULL),
-	(39, '7916', 'Xúc Pet Xăng Xe Máy', '80ML', 'Liqui Moly', 0, 0, NULL),
-	(40, '1516', 'Nhớt Láp', '500ML', 'Liqui Moly', 0, 0, NULL),
-	(41, '2427', 'Súc Rửa Động Cơ', '500ML', 'Liqui Moly', 0, 0, NULL),
-	(42, '1680', 'Nhớt Hộp Số Xe Ga 80W90', '150ML', 'Liqui Moly', 0, 0, NULL),
-	(43, '3325', 'VS Cổ Họng Ga', '400ML', 'Liqui Moly', 0, 0, NULL),
-	(44, '21611', 'VS Bóng Nhanh Detailing', '500ML', 'Liqui Moly', 0, 0, NULL);
+	(23, '', 'Scooter Le 10W40', '800ML', 1, 0, 0, NULL),
+	(24, '', 'Scooter Le MB 10W40', '800ML', 1, 0, 0, NULL),
+	(25, '', 'GP Power 10W40', '800ML', 1, 0, 0, NULL),
+	(26, '', '7100 10W40', '1L2', 1, 0, 0, NULL),
+	(27, '', '7100 10W40', '1L', 1, 0, 0, NULL),
+	(28, '', '7100 10W50', '1L', 1, 0, 0, NULL),
+	(29, '', 'Nhớt Láp', 'Tuýp', 1, 0, 0, NULL),
+	(30, '', 'Nhớt AVANA 10W40', '800ML', 1, 100, 50, NULL),
+	(31, '20753', 'Street Race 10W40', '1L', 2, 0, 0, NULL),
+	(32, '20826', 'Scooter Race 10W40', '1L', 2, 0, 0, NULL),
+	(33, '21718', 'Molygen Scooter 5W30', '1L', 2, 0, 0, NULL),
+	(34, '21895', 'Molygen Scooter 5W30', '800ML', 2, 0, 0, NULL),
+	(35, '3036', 'Formula 4T 10W400', '800ML', 2, 0, 0, NULL),
+	(36, '1521', 'Synthetic 10W40 Street', '1L', 2, 0, 0, NULL),
+	(37, '6924', 'Nước Làm Mát', '1L', 2, 0, 0, NULL),
+	(38, '1803', 'Xúc Pet Xăng Xe Hơi', '300ML', 2, 0, 0, NULL),
+	(39, '7916', 'Xúc Pet Xăng Xe Máy', '80ML', 2, 0, 0, NULL),
+	(40, '1516', 'Nhớt Láp', '500ML', 2, 0, 0, NULL),
+	(41, '2427', 'Súc Rửa Động Cơ', '500ML', 2, 0, 0, NULL),
+	(42, '1680', 'Nhớt Hộp Số Xe Ga 80W90', '150ML', 2, 0, 0, NULL),
+	(44, '21611', 'VS Bóng Nhanh Detailing', '500ML', 2, 0, 0, NULL);
 
 DELIMITER //
 CREATE PROCEDURE `sp_export_stock`(
@@ -148,22 +112,6 @@ BEGIN
 END//
 DELIMITER ;
 
-CREATE TABLE IF NOT EXISTS `stock_logs` (
-  `log_id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `action` enum('import','export') NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `note` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`log_id`),
-  KEY `product_id` (`product_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `stock_logs_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  CONSTRAINT `stock_logs_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
@@ -177,28 +125,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`, `full_name`, `role`) VALUES
 	(1, 'staff', 'Hongbiet@123', 'Tui Là Staff', 'staff'),
 	(2, 'admin', 'Caigivay@123', 'khong biet', 'admin');
-
-SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='';
-DELIMITER //
-CREATE TRIGGER trg_after_export_detail
-AFTER INSERT ON export_details
-FOR EACH ROW
-BEGIN
-    UPDATE products SET sl_ton = sl_ton - NEW.quantity WHERE product_id = NEW.product_id;
-END//
-DELIMITER ;
-SET SQL_MODE=@OLDTMP_SQL_MODE;
-
-SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='';
-DELIMITER //
-CREATE TRIGGER trg_after_import_detail
-AFTER INSERT ON import_details
-FOR EACH ROW
-BEGIN
-    UPDATE products SET sl_ton = sl_ton + NEW.quantity WHERE product_id = NEW.product_id;
-END//
-DELIMITER ;
-SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
