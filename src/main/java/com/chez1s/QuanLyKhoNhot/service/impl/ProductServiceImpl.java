@@ -37,6 +37,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getByKeywords(String keywords) {
-        return List.of();
+        return productMapper.getByKeywords(keywords);
     }
 }
