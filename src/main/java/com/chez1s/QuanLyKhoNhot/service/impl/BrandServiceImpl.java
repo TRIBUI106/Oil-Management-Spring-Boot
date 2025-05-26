@@ -40,9 +40,4 @@ public class BrandServiceImpl implements BrandService {
     public int deleteBrandByID(int id) {
         return brandMapper.deleteBrandById(id);
     }
-
-    @Override
-    public List<Brand> getByKeyword(String keywords) {
-        return List.of();
-    }
 }
