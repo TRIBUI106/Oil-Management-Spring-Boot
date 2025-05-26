@@ -1,7 +1,6 @@
 package com.chez1s.QuanLyKhoNhot.service;
 
 import com.chez1s.QuanLyKhoNhot.entity.Product;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -16,6 +15,6 @@ public interface ProductService {
 
     void updateProductById(Product product);
 
-    List<Product> getByKeywords(String keywords)
+    List<Product> getByKeywords(String keywords);
 
 }
