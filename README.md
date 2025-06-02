@@ -104,10 +104,10 @@ spring:
 * Đảm bảo database đã tạo các bảng `brands` và `products`.
 ---
 
-## 🧑‍💻 Tác giả
+## 🧑‍💻 Phát triển bởi
 
-* 🧠 Development : [Bùi Đức Trí](https://github.com/chez1s) a.k.a **cz**
-* 🧠 Co-dev      : [Nguyễn Quang Minh](https://github.com/NguyenMinh1301) a.k.a **mn**
+* 🧠 [Bùi Đức Trí](https://github.com/chez1s) a.k.a **cz**
+* 🧠 [Nguyễn Quang Minh](https://github.com/NguyenMinh1301) a.k.a **mn**
 * 🤝 Dự án open source
 
 ---
