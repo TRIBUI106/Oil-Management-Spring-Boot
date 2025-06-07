@@ -106,7 +106,7 @@ spring:
 
 ## 🧑‍💻 Phát triển bởi
 
-* 🧠 [Bùi Đức Trí](https://github.com/chez1s) a.k.a **cz**
+* 🧠 [Bùi Đức Trí](https://github.com/TRIBUI106) a.k.a **cz**
 * 🧠 [Nguyễn Quang Minh](https://github.com/NguyenMinh1301) a.k.a **mn**
 * 🤝 Dự án open source
 
