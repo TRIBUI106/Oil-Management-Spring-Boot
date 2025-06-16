@@ -45,4 +45,13 @@
         WHERE id = #{id}
     </update>
 
+    <select id="findBrandWithPageable" resultMap="BrandResultMap">
+        SELECT
+        id
+        , name
+        FROM brands
+        LIMIT #{size}
+        OFFSET #{offset}
+    </select>
+
 </mapper>

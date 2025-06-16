@@ -40,4 +40,13 @@ public class BrandServiceImpl implements BrandService {
     public int deleteBrandByID(int id) {
         return brandMapper.deleteBrandById(id);
     }
+
+    @Override
+    public List<Brand> findBrandWithPageable(int page, int size) {
+        //Xử lý logic
+        //Tính OFFSET dựa vào size được truyền vào
+        int offset = (page - 1) * size;
+
+        return brandMapper.findBrandWithPageable(offset, size);
+    }
 }

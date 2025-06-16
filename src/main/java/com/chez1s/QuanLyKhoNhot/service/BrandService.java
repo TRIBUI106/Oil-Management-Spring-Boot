@@ -16,5 +16,5 @@ public interface BrandService {
 
     int deleteBrandByID(int id);
 
-
+    List<Brand> findBrandWithPageable(int page, int size);
 }

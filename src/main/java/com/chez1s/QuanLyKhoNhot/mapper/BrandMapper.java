@@ -16,4 +16,6 @@ public interface BrandMapper {
     int updateBrandById(Integer id, String name);
 
     int deleteBrandById(Integer id);
+
+    List<Brand> findBrandWithPageable(int offset, int size);
 }
