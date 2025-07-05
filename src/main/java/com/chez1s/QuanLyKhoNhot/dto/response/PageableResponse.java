@@ -12,6 +12,10 @@ import java.util.List;
 
 public class PageableResponse<T> {
 
+    private boolean success;
+
+    private String message;
+
     private List<T> content;
 
     private int pageNumber;
