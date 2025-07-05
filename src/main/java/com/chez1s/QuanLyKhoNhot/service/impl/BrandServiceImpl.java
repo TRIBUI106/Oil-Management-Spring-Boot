@@ -1,7 +1,8 @@
 package com.chez1s.QuanLyKhoNhot.service.impl;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
-import com.chez1s.QuanLyKhoNhot.handler.PageableResponse;
+import com.chez1s.QuanLyKhoNhot.dto.response.PageableResponse;
+import com.chez1s.QuanLyKhoNhot.enums.Message;
 import com.chez1s.QuanLyKhoNhot.mapper.BrandMapper;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,8 @@ public class BrandServiceImpl implements BrandService {
         int totalElements = brandMapper.getAllBrand().size();
 
         return PageableResponse.<Brand>builder()
+                .success(true)
+                .message(Message.API_SUCCESS.getContent())
                 .content(content)
                 .pageNumber(page)
                 .pageSize(size)

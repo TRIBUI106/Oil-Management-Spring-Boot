@@ -1,7 +1,7 @@
 package com.chez1s.QuanLyKhoNhot.service;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
-import com.chez1s.QuanLyKhoNhot.handler.PageableResponse;
+import com.chez1s.QuanLyKhoNhot.dto.response.PageableResponse;
 
 import java.util.List;
 

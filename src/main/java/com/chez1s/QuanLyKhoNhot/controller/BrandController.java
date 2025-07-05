@@ -4,7 +4,7 @@ import com.chez1s.QuanLyKhoNhot.dto.request.CreationBranchDTO;
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
 import com.chez1s.QuanLyKhoNhot.handler.ApiResponse;
 import com.chez1s.QuanLyKhoNhot.handler.ApiResponseHelper;
-import com.chez1s.QuanLyKhoNhot.handler.PageableResponse;
+import com.chez1s.QuanLyKhoNhot.dto.response.PageableResponse;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
