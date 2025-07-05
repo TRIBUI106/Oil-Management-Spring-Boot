@@ -1,4 +1,4 @@
-package com.chez1s.QuanLyKhoNhot.handler;
+package com.chez1s.QuanLyKhoNhot.dto.response;
 
 import lombok.*;
 
