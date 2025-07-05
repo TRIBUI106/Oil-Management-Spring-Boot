@@ -13,8 +13,11 @@ import java.util.List;
 public class PageableResponse<T> {
 
     private List<T> content;
+
     private int pageNumber;
+
     private int pageSize;
+
     private long totalElements;
 
 }
