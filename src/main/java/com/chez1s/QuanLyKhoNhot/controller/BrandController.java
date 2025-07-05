@@ -62,7 +62,8 @@ public class BrandController {
     }
 
     @GetMapping("/search")
-    public List<Brand> searchStudent(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "size", defaultValue = "10") int size) {
+    public List<Brand> searchStudent(@RequestParam(value = "page", defaultValue = "1") int page
+                                    , @RequestParam(value = "size", defaultValue = "10") int size) {
         return brandService.findBrandWithPageable(page, size);
     }
 }
