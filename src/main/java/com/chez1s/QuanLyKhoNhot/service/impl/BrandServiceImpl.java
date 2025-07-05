@@ -1,6 +1,7 @@
 package com.chez1s.QuanLyKhoNhot.service.impl;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
+import com.chez1s.QuanLyKhoNhot.handler.PageableResponse;
 import com.chez1s.QuanLyKhoNhot.mapper.BrandMapper;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
 import org.springframework.stereotype.Service;
@@ -42,11 +43,20 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public List<Brand> findBrandWithPageable(int page, int size) {
+    public PageableResponse<Brand> findBrandWithPageable(int page, int size) {
         //Xử lý logic
         //Tính OFFSET dựa vào size được truyền vào
         int offset = (page - 1) * size;
 
-        return brandMapper.findBrandWithPageable(offset, size);
+        List<Brand> content = brandMapper.findBrandWithPageable(offset, size);
+
+        int totalElements = brandMapper.getAllBrand().size();
+
+        return PageableResponse.<Brand>builder()
+                .content(content)
+                .pageNumber(page)
+                .pageSize(size)
+                .totalElements(totalElements)
+                .build();
     }
 }

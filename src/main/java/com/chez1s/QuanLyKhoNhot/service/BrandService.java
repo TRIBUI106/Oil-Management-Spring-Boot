@@ -1,6 +1,7 @@
 package com.chez1s.QuanLyKhoNhot.service;
 
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
+import com.chez1s.QuanLyKhoNhot.handler.PageableResponse;
 
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface BrandService {
 
     int deleteBrandByID(int id);
 
-    List<Brand> findBrandWithPageable(int page, int size);
+    PageableResponse<Brand> findBrandWithPageable(int page, int size);
 }

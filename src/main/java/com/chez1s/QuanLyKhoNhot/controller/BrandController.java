@@ -2,8 +2,9 @@ package com.chez1s.QuanLyKhoNhot.controller;
 
 import com.chez1s.QuanLyKhoNhot.dto.request.CreationBranchDTO;
 import com.chez1s.QuanLyKhoNhot.entity.Brand;
-import com.chez1s.QuanLyKhoNhot.handler.ApiRespone;
-import com.chez1s.QuanLyKhoNhot.handler.ApiResponeHelper;
+import com.chez1s.QuanLyKhoNhot.handler.ApiResponse;
+import com.chez1s.QuanLyKhoNhot.handler.ApiResponseHelper;
+import com.chez1s.QuanLyKhoNhot.handler.PageableResponse;
 import com.chez1s.QuanLyKhoNhot.service.BrandService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,39 +32,40 @@ public class BrandController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiRespone<String>> insertBrand(@RequestBody CreationBranchDTO cbd) {
+    public ResponseEntity<ApiResponse<String>> insertBrand(@RequestBody CreationBranchDTO cbd) {
         try {
             String s = cbd.getName();
             brandService.addBrand(s);
-            return ApiResponeHelper.success(null, "Thêm thương hiệu thành công ! Tên : " + s);
+            return ApiResponseHelper.success(null, "Thêm thương hiệu thành công ! Tên : " + s);
         } catch (Exception e) {
-            return ApiResponeHelper.error("Lỗi khi thêm thương hiệu" + e.getMessage());
+            return ApiResponseHelper.error("Lỗi khi thêm thương hiệu" + e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiRespone<String>> updateBrand(@PathVariable("id") int id, @RequestBody Brand brand) {
+    public ResponseEntity<ApiResponse<String>> updateBrand(@PathVariable("id") int id, @RequestBody Brand brand) {
         try {
             brandService.updateBrandNameByID(id, brand.getName());
-            return ApiResponeHelper.success(null, "Cập nhật thương hiệu thành công ! ID : " + id + " / Tên mới : " + brand.getName());
+            return ApiResponseHelper.success(null, "Cập nhật thương hiệu thành công ! ID : " + id + " / Tên mới : " + brand.getName());
         } catch (Exception e) {
-            return ApiResponeHelper.error("Lỗi khi cập nhật thương hiệu: " + e.getMessage());
+            return ApiResponseHelper.error("Lỗi khi cập nhật thương hiệu: " + e.getMessage());
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiRespone<Integer>> delelteBrand(@PathVariable("id") int id) {
+    public ResponseEntity<ApiResponse<Integer>> delelteBrand(@PathVariable("id") int id) {
         try {
             brandService.deleteBrandByID(id);
-            return ApiResponeHelper.success(null, "Xoá thương hiệu thành công ! ID : " + id);
+            return ApiResponseHelper.success(null, "Xoá thương hiệu thành công ! ID : " + id);
         } catch (Exception e) {
-            return ApiResponeHelper.error("Lỗi khi xoá thương hiệu: " + e.getMessage());
+            return ApiResponseHelper.error("Lỗi khi xoá thương hiệu: " + e.getMessage());
         }
     }
 
     @GetMapping("/search")
-    public List<Brand> searchStudent(@RequestParam(value = "page", defaultValue = "1") int page
-                                    , @RequestParam(value = "size", defaultValue = "10") int size) {
+    public PageableResponse<Brand> searchBrand(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "10") int size) {
         return brandService.findBrandWithPageable(page, size);
     }
 }

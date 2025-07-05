@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ApiRespone<Object>> handleRuntimeException(RuntimeException ex) {
+    public ResponseEntity<ApiResponse<Object>> handleRuntimeException(RuntimeException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                ApiRespone.builder()
+                ApiResponse.builder()
                         .success(false)
                         .status("400")
                         .message("Lỗi xử lý: " + ex.getMessage())
@@ -21,9 +21,9 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(DataAccessException.class)
-    public ResponseEntity<ApiRespone<Object>> handleDatabaseException(DataAccessException ex) {
+    public ResponseEntity<ApiResponse<Object>> handleDatabaseException(DataAccessException ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                ApiRespone.builder()
+                ApiResponse.builder()
                         .success(false)
                         .status("500")
                         .message("Lỗi database: " + ex.getMessage())
@@ -33,9 +33,9 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiRespone<Object>> handleGenericException(Exception ex) {
+    public ResponseEntity<ApiResponse<Object>> handleGenericException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                ApiRespone.builder()
+                ApiResponse.builder()
                         .success(false)
                         .status("500")
                         .message("Lỗi không xác định: " + ex.getMessage())
