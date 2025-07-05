@@ -1,4 +1,4 @@
-package com.chez1s.QuanLyKhoNhot.dto.response;
+package com.chez1s.QuanLyKhoNhot.handler;
 
 import lombok.*;
 
@@ -12,12 +12,12 @@ import java.util.List;
 
 public class PageableResponse<T> {
 
-    private boolean success;
-    private String message;
     private List<T> content;
-    private int pageNumber;
-    private int pageSize;
-    private int totalElements;
 
+    private int pageNumber;
+
+    private int pageSize;
+
+    private long totalElements;
 
 }
