@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class ApiRespone<T> {
+public class ApiResponse<T> {
 
     private boolean success;
     private String status;
